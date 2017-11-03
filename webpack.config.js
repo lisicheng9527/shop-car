@@ -17,8 +17,5 @@ module.exports = {
 			 use: ['style-loader','css-loader?importLoaders=1']
 		 }
 	 ]
-    },
-    devServer: {
-        host: '0.0.0.0'
     }
 }
