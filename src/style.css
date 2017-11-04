@@ -1,3 +1,4 @@
+@import '//at.alicdn.com/t/font_464326_m9oceyasqxueg66r.css';
 #app {
     background-color: #fff;
 }
@@ -29,10 +30,10 @@
   z-index: 79;
 }
 .am-menu .am-menu-select-container {
-  webkit-box-flex: 3;
-  -webkit-flex-grow: 3;
-  -ms-flex-positive: 3;
-  flex-grow: 3;
+  webkit-box-flex: 4;
+  -webkit-flex-grow: 4;
+  -ms-flex-positive: 4;
+  flex-grow: 4;
 }
 .am-flexbox .am-flexbox-item {
   -webkit-box-flex: 1;
@@ -41,14 +42,202 @@
     flex: 1;
 }
 .am-menu .am-menu-select-container .am-menu-select-container-submenu {
-  -webkit-box-flex: 2;
-    -webkit-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
+  -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
 }
 .am-list-item {
     min-height: 55px
 }
 .am-navbar {
     height: 60px
+}
+
+
+
+.am-list-item img {
+    width: 86px;
+    height: auto;
+}
+.goods-item {
+    webkit-box-flex: 4;
+    -webkit-flex-grow: 4;
+    -ms-flex-positive: 4;
+    flex-grow: 4;
+    padding: 8px 0;
+}
+.goods-img,.goods-add {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-right: 20px;
+    text-align: right;
+}
+.goods-info {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+.goods-info .go-name {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+.goods-info .tj {
+    border: 1px solid rgb(255, 51, 0);
+    color: rgb(255, 51, 0);
+    border-radius: 8px;
+    padding: 3px 6px;
+    margin: 6px 5px 6px 0;
+    font-size: 8px;
+    display: inline-block;
+}
+.goods-info .price {
+    color: rgb(255, 51, 0);
+    font-size: 14px;
+}
+.goods-info .old-price {
+    font-size: 12px;
+    color: #666;
+    margin-left: 5px;
+    text-decoration: line-through;
+}
+.goods-add span{
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.goods-add .num, .go-opera .num {
+    margin: 0 8px;
+}
+.go-result {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+}
+.go-result::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(0deg, transparent 50%, #e0e0e0 50%);
+}
+.go-result .money,.go-order {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.go-order {
+    text-align: right;
+    margin-right: 15px;
+}
+.go-order .order-but {
+    width: 135px;
+    background-color: #fc0;
+    padding: 12px 0;
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 3px;
+}
+.order-panel {
+    position: relative;
+    flex-grow: 2;
+    -webkit-flex-grow: 2;
+    -ms-flex-positive: 2;
+    -moz-flex-grow: 2;
+    display: flex;
+    width: 100%;
+    z-index: 6;
+    background-color: #fff;
+    padding: 10px 0;
+}
+.money{
+    margin-left: 15px;
+}
+.money .car {
+    background-color: #fc0;
+    padding: 8px;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+}
+.money .car .bage {
+    color: #fff;
+    background-color: #333;
+    font-size: 12px;
+    position: absolute;
+    top: -6px;
+    font-style: normal;
+    right: -4px;
+    border-radius: 50%;
+    padding: 3px 6px;
+}
+.money .ze{
+    font-size: 18px;
+    margin-left: 16px;
+}
+.money .car .icon-gouwuche {
+    font-size: 24px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+.goods-list {
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    z-index: 2;
+    padding: 0 15px;
+}
+.goods-list.animate {
+    transition: 300ms ease-in-out;
+}
+.goods-list .check-goods {
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+.goods-list ul {
+    margin: 0;
+    padding: 0;
+}
+.goods-list li {
+    flex-grow: 5;
+    -webkit-flex-grow: 5;
+    -ms-flex-positive: 5;
+    -moz-flex-grow: 5;
+    display: flex;
+    padding: 15px 0;
+}
+.go-name {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+}
+.go-price, .go-opera {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-right: 15px;
+    text-align: right;
+}
+.maskbg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .3;
+    background: #000;
+    z-index: 1;
 }
