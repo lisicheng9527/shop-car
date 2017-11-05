@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
-const data = [
+/*const data = [
     {
       value: '1',
       label: '双十一狂欢',
@@ -251,15 +252,15 @@ const data = [
         },
       ],
     },
-  ];
+  ];*/
 
-
-
+const data = [];
 export default class Menuel extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            children: data[0].children,
+            tab: data,
+            children:data,
             foodsIndex: 0,
             shopCar: [], //购物车商品种类数量
             goodsNum: 0, //商品数量
@@ -269,24 +270,27 @@ export default class Menuel extends React.Component {
     }
     handleClick(n){
         this.setState({
-            children: data[n].children,
+            children: this.state.tab[n].children,
             foodsIndex: n
         });
     }
     addCar(obj){
-        const counts = data[this.state.foodsIndex].children.indexOf(obj);
-        data[this.state.foodsIndex].children[counts].num += 1;
-        this.setState({children: data[this.state.foodsIndex].children});
-        this.state.shopCar.indexOf(obj)<0 ? this.state.shopCar.push(obj) : null;
+        const counts = this.state.tab[this.state.foodsIndex].children.indexOf(obj);
+        this.state.tab[this.state.foodsIndex].children[counts].num += 1;
+        this.setState({children: this.state.tab[this.state.foodsIndex].children});
+        if(this.state.shopCar.indexOf(obj)<0){
+            obj.tab = this.state.foodsIndex;
+            this.state.shopCar.push(obj)
+        }
         this.setState({
             goodsNum: eval(this.state.shopCar.map((obj)=>{return obj.num}).join('+')),
             balance: eval(this.state.shopCar.map((obj)=>{return obj.num*obj.price}).join('+'))
         });
     }
     reduceCar(obj){
-        const counts = data[this.state.foodsIndex].children.indexOf(obj);
-        data[this.state.foodsIndex].children[counts].num -= 1;
-        this.setState({children: data[this.state.foodsIndex].children});
+        const counts = this.state.tab[obj.tab].children.indexOf(obj);
+        this.state.tab[obj.tab].children[counts].num -= 1;
+        this.setState({children: this.state.tab[this.state.foodsIndex].children});
         this.state.goodsNum -= 1;
         this.state.balance -= obj.price;
         obj.num == 0 ? this.state.shopCar.splice(this.state.shopCar.indexOf(obj),1) : null;
@@ -313,6 +317,18 @@ export default class Menuel extends React.Component {
         if(!this.state.goodsNum){alert('请先选择商品');return;}
         console.log(this.state.shopCar);
     }
+    componentDidMount(){
+        axios.get(`http://api.quanfuxia.com/site/init?category=6`)
+        .then(res => {
+            //const posts = res.data.data.children.map(obj => obj.data);
+            const tab = res.data,children = res.data[0].children;
+            //this.setState({ posts });
+            this.setState({
+                tab:tab,
+                children:children
+            });
+        });
+    }
     render() {
         return (
             <div className="am-flexbox am-menu foo-menu am-flexbox-dir-column am-flexbox-align-stretch">
@@ -321,7 +337,7 @@ export default class Menuel extends React.Component {
                         <div className="am-list">
                             <div className="am-list-body">
                                 {
-                                    data.map((obj,index)=>{
+                                    this.state.tab.map((obj,index)=>{
                                         return(
                                             <div 
                                             key={index} 
@@ -350,7 +366,7 @@ export default class Menuel extends React.Component {
                                         return(
                                             <div className="am-list-item am-radio-item am-list-item-middle goods-item" key={index}>
                                                 <div className="goods-img">
-                                                    <img src="https://img.xingbianli.cn/1506064001704143472281.png?x-oss-process=image/resize,m_lfit,h_120,w_120" />
+                                                    <img src={obj.img} />
                                                 </div>
                                                 <div className="goods-info">
                                                     <p className="go-name">{obj.label}</p>

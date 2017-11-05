@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lisicheng9527/shop-car#readme",
   "devDependencies": {
+    "axios": "^0.17.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-import": "^1.6.2",
@@ -35,6 +36,6 @@
   },
   "theme": {
     "brand-primary": "red",
-    "color-text-base":  "#333"
-    }
+    "color-text-base": "#333"
+  }
 }
