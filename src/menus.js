@@ -315,7 +315,7 @@ export default class Menuel extends React.Component {
     }
     makeOrder(){
         if(!this.state.goodsNum){alert('请先选择商品');return;}
-        alert('支付信息已打印');
+        alert('支付信息已打印在控制台');
         console.log(this.state.shopCar);
     }
     componentDidMount(){
