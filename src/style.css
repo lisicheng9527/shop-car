@@ -11,6 +11,9 @@
   z-index: 80;
 }
 
+.am-navbar {
+    z-index: 1;
+}
 .top-nav-bar {
   position: relative;
   background-color: #008AE6;
@@ -111,6 +114,10 @@
     text-decoration: line-through;
 }
 .goods-add span{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     margin-top: 4px;
     display: inline-block;
 }
@@ -122,7 +129,7 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
 }
 .go-result::after {
     content: " ";
@@ -244,5 +251,5 @@
     right: 0;
     opacity: .3;
     background: #000;
-    z-index: 1;
+    z-index: 2;
 }

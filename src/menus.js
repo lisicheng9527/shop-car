@@ -315,14 +315,13 @@ export default class Menuel extends React.Component {
     }
     makeOrder(){
         if(!this.state.goodsNum){alert('请先选择商品');return;}
+        alert('确认支付接口');
         console.log(this.state.shopCar);
     }
     componentDidMount(){
         axios.get(`http://api.quanfuxia.com/site/init?category=6`)
         .then(res => {
-            //const posts = res.data.data.children.map(obj => obj.data);
             const tab = res.data,children = res.data[0].children;
-            //this.setState({ posts });
             this.setState({
                 tab:tab,
                 children:children
