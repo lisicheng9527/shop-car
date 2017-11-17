@@ -49,6 +49,7 @@
     -webkit-flex: 3;
     -ms-flex: 3;
     flex: 3;
+    padding-bottom: 63px;
 }
 .am-list-item {
     min-height: 55px
@@ -129,7 +130,7 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: 3;
+    z-index: 1003 !important;
 }
 .go-result::after {
     content: " ";
@@ -251,5 +252,5 @@
     right: 0;
     opacity: .3;
     background: #000;
-    z-index: 2;
+    z-index: 1002;
 }
